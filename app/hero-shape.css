@@ -1,0 +1,136 @@
+.doctor {
+  height: min(70vh, 680px);
+  isolation: isolate;
+}
+
+.doctor .shape {
+  z-index: -2;
+  inset: 19% 0 4% 4%;
+  overflow: hidden;
+  border-radius: 52% 10% 10% 48% / 40% 16% 16% 58%;
+  background: linear-gradient(135deg, #dfe5cf 0%, #b7c39f 52%, #879873 100%);
+  box-shadow: 0 30px 75px #59664b26;
+  animation: doctor-shape-in 1s var(--ease) both;
+}
+
+.doctor .shape::before,
+.doctor .shape::after {
+  content: "";
+  position: absolute;
+  right: -5%;
+  height: 17%;
+  border-radius: 999px;
+  background: #f7f2e9b8;
+}
+
+.doctor .shape::before {
+  width: 50%;
+  top: 18%;
+  box-shadow: -78px 150px 0 -11px #f7f2e987;
+}
+
+.doctor .shape::after {
+  width: 34%;
+  bottom: 13%;
+}
+
+.doctor::before,
+.doctor::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  border-radius: 50%;
+  background: var(--ivory);
+  border: 1px solid #84946f4d;
+}
+
+.doctor::before {
+  width: 70px;
+  height: 70px;
+  right: 4%;
+  top: 23%;
+}
+
+.doctor::after {
+  width: 20px;
+  height: 20px;
+  right: -1%;
+  top: 16%;
+  background: var(--olive2);
+  border: 0;
+}
+
+.doctor img {
+  width: 92%;
+  object-fit: contain;
+  object-position: center bottom;
+  mix-blend-mode: normal;
+  filter: saturate(.92) drop-shadow(0 18px 28px #3d47352e);
+  animation: doctor-image-in 1s .12s var(--ease) both;
+}
+
+.doctor span {
+  z-index: 2;
+  bottom: 24px;
+  right: 12px;
+  background: #f7f2e9e8;
+  backdrop-filter: blur(10px);
+  border: 1px solid #fff8;
+  padding: 10px 14px;
+  box-shadow: 0 12px 35px #59664b1c;
+}
+
+@keyframes doctor-shape-in {
+  from { opacity: 0; transform: translateX(45px) scaleX(.9); }
+  to { opacity: 1; transform: none; }
+}
+
+@keyframes doctor-image-in {
+  from { opacity: 0; transform: translateY(34px); }
+  to { opacity: 1; transform: none; }
+}
+
+@media (max-width: 900px) {
+  .doctor {
+    width: 100%;
+    max-width: 680px;
+    height: 620px;
+    margin: 8px auto 0;
+  }
+
+  .doctor .shape {
+    inset: 20% 2% 3%;
+    border-radius: 48% 9% 9% 44% / 36% 13% 13% 54%;
+  }
+
+  .doctor img { width: 94%; }
+}
+
+@media (max-width: 540px) {
+  .doctor {
+    height: 500px;
+    margin-top: 20px;
+  }
+
+  .doctor .shape {
+    inset: 23% 0 4%;
+    border-radius: 44% 8% 8% 38% / 31% 10% 10% 48%;
+  }
+
+  .doctor .shape::before {
+    width: 43%;
+    height: 14%;
+    box-shadow: -55px 112px 0 -9px #f7f2e987;
+  }
+
+  .doctor .shape::after { height: 13%; }
+  .doctor::before { width: 52px; height: 52px; right: 3%; top: 26%; }
+  .doctor::after { right: 0; top: 20%; }
+  .doctor img { width: 100%; object-position: center bottom; }
+  .doctor span { right: 6px; bottom: 14px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .doctor .shape,
+  .doctor img { animation: none; }
+}

@@ -1,5 +1,6 @@
 "use client";
 import {useEffect,useState} from "react";
+import "./hero-shape.css";
 const whatsapp="https://wa.me/5594991015005";
 const pillars=[
   ["01","Estratégia médica","Emagrecimento feminino conduzido com avaliação clínica, evidências e metas possíveis."],
